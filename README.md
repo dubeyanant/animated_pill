@@ -95,7 +95,7 @@ flutter test test/animated_pill_test.dart
 
 ## Example Screenshots
 
-[Add your screenshots or GIFs here]
+![pill](https://github.com/user-attachments/assets/437bd15d-ed96-4d8b-bf0b-b9a30a7a62c0)
 
 ## Contributing
 
