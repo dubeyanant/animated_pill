@@ -76,6 +76,23 @@ The widget supports different animation modes through the `animationLoops` param
 - `n > 0`: Animates n times
 - `n < -1`: Not allowed (throws assertion error)
 
+## Testing
+
+Comprehensive test cases are available in the `test` directory. The test suite includes:
+
+- Default properties validation
+- Custom styling verification
+- Empty text handling
+- Layout properties testing
+- Animation loops validation
+
+For detailed information about the test cases, please refer to [test/test_documentation.md](test/test_documentation.md).
+
+To run the tests:
+```bash
+flutter test test/animated_pill_test.dart
+```
+
 ## Example Screenshots
 
 [Add your screenshots or GIFs here]
