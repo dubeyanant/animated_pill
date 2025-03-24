@@ -1,12 +1,61 @@
 import 'package:flutter/material.dart';
 
+/// A Flutter widget that creates an animated pill-shaped container with customizable
+/// appearance and animation properties.
+///
+/// The [AnimatedPill] widget displays text in a pill-shaped container that can animate
+/// its appearance and disappearance. It's perfect for displaying tags, labels, or badges
+/// with smooth animations.
+///
+/// Example usage:
+/// ```dart
+/// AnimatedPill(
+///   text: 'New Feature',
+///   backgroundColor: Colors.green,
+///   textColor: Colors.white,
+/// )
+/// ```
 class AnimatedPill extends StatefulWidget {
+  /// The text to display in the pill.
   final String text;
+
+  /// The number of times the animation should loop.
+  ///
+  /// - `-1`: Infinite animation loops (default)
+  /// - `0`: No animation, just shows the widget
+  /// - `n > 0`: Animates n times
+  /// - `n < -1`: Not allowed (throws assertion error)
   final int animationLoops;
-  final EdgeInsets padding, margin;
-  final double fontSize, borderRadius, leftPadding, rightPadding;
-  final Color backgroundColor, textColor;
-  final Duration animationDuration, pauseDuration;
+
+  /// The padding around the text content.
+  final EdgeInsets padding;
+
+  /// The margin around the pill container.
+  final EdgeInsets margin;
+
+  /// The size of the text.
+  final double fontSize;
+
+  /// The border radius of the pill container.
+  final double borderRadius;
+
+  /// The left padding of the container.
+  final double leftPadding;
+
+  /// The right padding of the container.
+  final double rightPadding;
+
+  /// The background color of the pill.
+  final Color backgroundColor;
+
+  /// The color of the text.
+  final Color textColor;
+
+  /// The duration of each animation cycle.
+  final Duration animationDuration;
+
+  /// The duration to pause between animations.
+  final Duration pauseDuration;
 
   const AnimatedPill._({
     required this.text,
@@ -23,15 +72,25 @@ class AnimatedPill extends StatefulWidget {
     required this.pauseDuration,
   });
 
-  /// [animationLoops] accepted values
+  /// Creates an [AnimatedPill] widget.
   ///
-  /// case -1: loop infinite times
+  /// The [text] parameter is required and specifies the text to display.
+  /// All other parameters are optional and have default values.
   ///
-  /// case 0: directly show widget without any animation
+  /// The [animationLoops] parameter controls the animation behavior:
+  /// - `-1`: Infinite animation loops (default)
+  /// - `0`: No animation, just shows the widget
+  /// - `n > 0`: Animates n times
+  /// - `n < -1`: Not allowed (throws assertion error)
   ///
-  /// case n(n > 0): loop n times
-  ///
-  /// case n(n < -1): not allowed
+  /// Example:
+  /// ```dart
+  /// AnimatedPill(
+  ///   text: 'New Feature',
+  ///   backgroundColor: Colors.green,
+  ///   textColor: Colors.white,
+  /// )
+  /// ```
   factory AnimatedPill(
     text, {
     animationLoops = -1,
@@ -68,16 +127,33 @@ class AnimatedPill extends StatefulWidget {
   State<AnimatedPill> createState() => _AnimatedPillState();
 }
 
+/// The state class for [AnimatedPill].
 class _AnimatedPillState extends State<AnimatedPill>
     with SingleTickerProviderStateMixin {
+  /// The controller that manages the animation.
   late AnimationController _controller;
+
+  /// The animation that controls the width of the pill.
   late Animation<double> _animation;
+
+  /// A key to identify the text widget for measuring its width.
   final GlobalKey _textKey = GlobalKey();
+
+  /// The measured width of the text.
   double _textWidth = 0.0;
+
+  /// Whether the text width has been measured.
   bool _measured = false;
+
+  /// Whether the widget has been disposed.
   bool _disposed = false;
+
+  /// The animation that controls the scale of the pill.
   late Animation<double> scaleAnimation;
+
+  /// The number of animation loops remaining.
   late int loops;
+
   @override
   void initState() {
     super.initState();
@@ -115,6 +191,7 @@ class _AnimatedPillState extends State<AnimatedPill>
     }
   }
 
+  /// Measures the width of the text widget.
   void _measureTextWidth() {
     final RenderBox? renderBox =
         _textKey.currentContext?.findRenderObject() as RenderBox?;
@@ -127,6 +204,7 @@ class _AnimatedPillState extends State<AnimatedPill>
     }
   }
 
+  /// Starts the animation sequence.
   void _startAnimation() async {
     if (_disposed) return;
 

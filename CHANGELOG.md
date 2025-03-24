@@ -1,6 +1,10 @@
 # Changelog
 
-## [1.0.1] - 2025-03-25
+## 1.0.2
+### Fixed
+- add public api comments
+
+## 1.0.1
 ### Fixed
 - update README.md
 
