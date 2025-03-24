@@ -3,7 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:animated_pill/animated_pill.dart';
 
 void main() {
-  testWidgets('Default Properties Test - Verifies basic rendering and default values',
+  testWidgets(
+      'Default Properties Test - Verifies basic rendering and default values',
       (WidgetTester tester) async {
     // Build the widget with default properties
     await tester.pumpWidget(
@@ -52,7 +53,8 @@ void main() {
     expect(container.margin, const EdgeInsets.only(left: 8));
   });
 
-  testWidgets('Custom Properties Test - Verifies custom styling is applied correctly',
+  testWidgets(
+      'Custom Properties Test - Verifies custom styling is applied correctly',
       (WidgetTester tester) async {
     // Custom properties
     const customBackgroundColor = Color(0xFF2196F3);
@@ -184,7 +186,8 @@ void main() {
     expect((container.margin as EdgeInsets).bottom, 12);
   });
 
-  test('Invalid Animation Loops Test - Verifies assertion error for invalid loops',
+  test(
+      'Invalid Animation Loops Test - Verifies assertion error for invalid loops',
       () {
     expect(
       () => AnimatedPill(
@@ -219,4 +222,4 @@ void main() {
       isNot(throwsAssertionError),
     );
   });
-} 
+}

@@ -188,8 +188,7 @@ class _AnimatedPillState extends State<AnimatedPill>
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
-        final width =
-            (_textWidth + widget.leftPadding + widget.rightPadding) *
+        final width = (_textWidth + widget.leftPadding + widget.rightPadding) *
             _animation.value;
         return Transform(
           transform: Matrix4.identity()..scale(scaleAnimation.value),
