@@ -1,5 +1,3 @@
-import 'dart:ui' show Color;
-
 import 'package:flutter/material.dart';
 
 class AnimatedPill extends StatefulWidget {
@@ -47,7 +45,9 @@ class AnimatedPill extends StatefulWidget {
     borderRadius = 50.0,
   }) {
     assert(
-        animationLoops >= -1, "\n\n[animationLoops] cannot be less than -1\n");
+      animationLoops >= -1,
+      "\n\n[animationLoops] cannot be less than -1\n",
+    );
     return AnimatedPill._(
       text: text,
       animationLoops: animationLoops,
@@ -177,10 +177,7 @@ class _AnimatedPillState extends State<AnimatedPill>
         child: Text(
           widget.text,
           key: _textKey,
-          style: TextStyle(
-            color: widget.textColor,
-            fontSize: widget.fontSize,
-          ),
+          style: TextStyle(color: widget.textColor, fontSize: widget.fontSize),
           softWrap: false,
           overflow: TextOverflow.clip,
         ),
@@ -191,14 +188,16 @@ class _AnimatedPillState extends State<AnimatedPill>
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
-        final width = (_textWidth + widget.leftPadding + widget.rightPadding) *
+        final width =
+            (_textWidth + widget.leftPadding + widget.rightPadding) *
             _animation.value;
         return Transform(
           transform: Matrix4.identity()..scale(scaleAnimation.value),
           alignment: Alignment.centerLeft,
           child: AnimatedOpacity(
-            duration:
-                Duration(milliseconds: widget.animationDuration.inMilliseconds),
+            duration: Duration(
+              milliseconds: widget.animationDuration.inMilliseconds,
+            ),
             curve: Curves.easeOutExpo,
             opacity: _animation.value,
             child: Container(
