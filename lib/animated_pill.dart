@@ -92,16 +92,16 @@ class AnimatedPill extends StatefulWidget {
   /// )
   /// ```
   factory AnimatedPill(
-    text, {
-    animationLoops = -1,
-    backgroundColor = const Color(0xFF4CAF50),
-    textColor = const Color(0xFFFFFFFF),
-    fontSize = 9.0,
-    animationDuration = const Duration(milliseconds: 1000),
-    pauseDuration = const Duration(milliseconds: 800),
-    padding = const EdgeInsets.fromLTRB(8, 2, 8, 3),
-    margin = const EdgeInsets.only(left: 8),
-    borderRadius = 50.0,
+    String text, {
+    int animationLoops = -1,
+    Color backgroundColor = const Color(0xFF4CAF50),
+    Color textColor = const Color(0xFFFFFFFF),
+    double fontSize = 9.0,
+    Duration animationDuration = const Duration(milliseconds: 1000),
+    Duration pauseDuration = const Duration(milliseconds: 800),
+    EdgeInsets padding = const EdgeInsets.fromLTRB(8, 2, 8, 3),
+    EdgeInsets margin = const EdgeInsets.only(left: 8),
+    double borderRadius = 50.0,
   }) {
     assert(
       animationLoops >= -1,

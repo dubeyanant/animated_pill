@@ -10,15 +10,6 @@ A Flutter widget that creates an animated pill-shaped container with customizabl
 - 📱 Responsive design that adapts to text content
 - 🎯 Built-in pause duration between animations
 
-## Installation
-
-Add this to your package's `pubspec.yaml` file:
-
-```yaml
-dependencies:
-  animated_pill: ^1.0.0
-```
-
 ## Usage
 
 Here's a simple example of how to use the AnimatedPill widget:

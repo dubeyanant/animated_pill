@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+### Fixed
+- add data types to the params
+
 ## 1.0.2
 ### Fixed
 - add public api comments
